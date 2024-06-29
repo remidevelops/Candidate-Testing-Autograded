@@ -66,8 +66,8 @@ function gradeQuiz(candidateAnswers) {
 console.log(`Your Answer: ${candidateAnswer}`);
 console.log(`Correct Answer: ${correctAnswer}`);
 */
-console.log(`Your Answers: ${candidateAnswers}`);
-console.log(`Correct Answers: ${correctAnswers}`);
+console.log(`Your Answer: ${candidateAnswers}`);
+console.log(`Correct Answer: ${correctAnswers}`);
 
 
 
