@@ -36,7 +36,7 @@ let candidateAnswers = [];
 // TODO 1.1b: Ask for candidate's name //
 function askForName() {
   candidateName = input.question("Please enter your name: ");
-
+  
 }
 
 // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
@@ -46,7 +46,6 @@ function askQuestion() {
     for (let i = 0; i < questions.length; i++) {//loops through the array
       answer = input.question(questions[i]);//variable for input of questions at i
       candidateAnswers.push(answer);//put the answers in the empty array
-       
     }
     
 }
@@ -66,12 +65,59 @@ function gradeQuiz(candidateAnswers) {
 console.log(`Your Answer: ${candidateAnswer}`);
 console.log(`Correct Answer: ${correctAnswer}`);
 */
+console.log();
+
 console.log(`Your Answer: ${candidateAnswers}`);
 console.log(`Correct Answer: ${correctAnswers}`);
 
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = 0  //TODO 3.2 use this variable to calculate the candidates score.
+  let numberOfCorrectAnswers = 0
+  let numberOfQuestions = 5
+
+  console.log();
+console.log(candidateAnswers);
+console.log(correctAnswers);
+
+console.log();
+
+// if (`${candidateAnswers[0]} === ${correctAnswers[0]}`) {
+//   numberOfCorrectAnswers += 1
+//   console.log(numberOfCorrectAnswers);
+// }
+
+for (let i = 0; i < candidateAnswers.length; i++) {
+  if (candidateAnswers[i] === correctAnswers[i]) {
+    numberOfCorrectAnswers += 1
+    console.log("========================");
+    console.log(numberOfCorrectAnswers);
+  } else {
+      numberOfCorrectAnswers += 0
+  }
+}
+
+grade = (numberOfCorrectAnswers / numberOfQuestions) * 100
+//Convey to the candidate if they have passed the quiz with an 80% or if they have failed
+
+console.log(grade + "/" + "100");
+if (grade >= 80) {
+  console.log(`>>> Overall Grade: ${grade} % (${numberOfCorrectAnswers} of ${numberOfQuestions} responses correct) <<<`)
+} else {
+    console.log(">>> Status: FAILED <<<")
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return grade;
