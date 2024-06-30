@@ -67,6 +67,8 @@ console.log(`Correct Answer: ${correctAnswer}`);
 */
 console.log();
 
+
+
 console.log(`Your Answer: ${candidateAnswers}`);
 console.log(`Correct Answer: ${correctAnswers}`);
 
@@ -77,8 +79,8 @@ console.log(`Correct Answer: ${correctAnswers}`);
   let numberOfQuestions = 5
 
   console.log();
-console.log(candidateAnswers);
-console.log(correctAnswers);
+// console.log(candidateAnswers);
+// console.log(correctAnswers);
 
 console.log();
 
@@ -88,10 +90,18 @@ console.log();
 // }
 
 for (let i = 0; i < candidateAnswers.length; i++) {
-  if (candidateAnswers[i] === correctAnswers[i]) {
+
+  let lowerCaseCandidateAnswer = candidateAnswers[i].toLowerCase();//CREATE VARIABLE TO REPRESENT ARRAY[I] CHANGED TO LOWERCASE
+  
+  // let lowerCaseCorrectAnswers = correctAnswers.toLowerCase();
+
+
+  if (lowerCaseCandidateAnswer === correctAnswers[i].toLowerCase()) {//CHANGE ARRAY INDEX TO LOWERCASE HERE
+    // console.log("candidateAnswers[i]",candidateAnswers[i]);
+    // console.log("correctAnswers[i]",correctAnswers[i]);
     numberOfCorrectAnswers += 1
-    console.log("========================");
-    console.log(numberOfCorrectAnswers);
+    // console.log("========================");
+    // console.log(numberOfCorrectAnswers);
   } else {
       numberOfCorrectAnswers += 0
   }
