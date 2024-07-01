@@ -85,12 +85,12 @@ function gradeQuiz(candidateAnswers) {
   let numberOfQuestions = questions.length;
 
 
-for (let i = 0; i < canidateAnsdwers.length; i++) {
+for (let i = 0; i < candidateAnswers.length; i++) {
   if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {//CHANGE ARRAY INDEX TO LOWERCASE HERE
     numberOfCorrectAnswers += 1;
   }
 
-  console.log(`${i+1}) ${questions[i]}`);//i is the current iteration of the loop then +1 cuz what even is question number 0 before it was variable += 1
+  console.log(`${i + 1}) ${questions[i]}`);//i is the current iteration of the loop +1 cuz what even is question number 0
   console.log(`Your Answer: ${candidateAnswers[i]}`);
   console.log(`Correct Answer: ${correctAnswers[i]}`);
   console.log();
