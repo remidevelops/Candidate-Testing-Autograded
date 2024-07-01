@@ -3,16 +3,10 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 // TODO 1.1a: Define candidateName //Declare this variable as an empty string
 let candidateName = "";
-
-
-
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
-
-
-
 
 //TODO: Variables for Part 2
 let questions = [
@@ -38,9 +32,6 @@ let candidateAnswers = [];
 
 
 
-
-
-
 // TODO 1.1b: Ask for candidate's name //
 function askForName() {
   candidateName = input.question("Candidate Name: ");
@@ -52,22 +43,26 @@ function askForName() {
 
 
 
-
 // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 function askQuestion() {
+  for (let i = 0; i < questions.length; i++) {
+    let answer = input.question(`${i + 1}) ${questions[i]}`);
+    candidateAnswers.push(answer);
+  }
 
-  let answer = "";
-  let questionNumber = 1
-    //candidateAnswer = input.question(question);
+//OLD VERSIONvvvvvvvvvv
+  // let answer = "";
+  // let questionNumber = 1
+  //   //candidateAnswer = input.question(question);
 
-    for (let i = 0; i < questions.length; i++) {//loops through the array
-      answer = input.question(questionNumber + ") " + questions[i]);//variable for input of questions at i
-      candidateAnswers.push(answer);//put the answers in the empty array
-      console.log("Your Answer: " + candidateAnswers[i]);
-      console.log("Correct Answer: " + correctAnswers[i]);
-      console.log();
-      questionNumber += 1
-    }
+  //   for (let i = 0; i < questions.length; i++) {//loops through the array
+  //     answer = input.question(questionNumber + ") " + questions[i]);//variable for input of questions at i
+  //     candidateAnswers.push(answer);//put the answers in the empty array
+  //     console.log("Your Answer: " + candidateAnswers[i]);
+  //     console.log("Correct Answer: " + correctAnswers[i]);
+  //     console.log();
+  //     questionNumber += 1
+  //   }
     
 }
 
@@ -76,52 +71,29 @@ function askQuestion() {
 
 
 
-
 function gradeQuiz(candidateAnswers) {
 // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-
 /*if (candidateAnswer === correctAnswer){ V1 TRY NOT CORRECT****
     console.log("Your Answer:");
 } else {
     console.log("YOU MESSED UP!");
-}
- //V1 TRY UPDATED INFO WITH THIS BETTER CODE THAT WORKS
-console.log(`Your Answer: ${candidateAnswer}`);
-console.log(`Correct Answer: ${correctAnswer}`);
-*/
-// console.log();
-
-// console.log(`Your Answer: ${candidateAnswers}`);
-// console.log(`Correct Answer: ${correctAnswers}`);
+}*/
 
 
-
-
-  let grade = 0  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade = 0   //TODO 3.2 use this variable to calculate the candidates score.
   let numberOfCorrectAnswers = 0
-  let numberOfQuestions = 5
-
-  
-// console.log(candidateAnswers);
-// console.log(correctAnswers);
-// if (`${candidateAnswers[0]} === ${correctAnswers[0]}`) {
-//   numberOfCorrectAnswers += 1
-//   console.log(numberOfCorrectAnswers);
-// }
+  let numberOfQuestions = questions.length;
 
 
-for (let i = 0; i < candidateAnswers.length; i++) {
-  let lowerCaseCandidateAnswer = candidateAnswers[i].toLowerCase();//CREATE VARIABLE TO REPRESENT ARRAY[I] CHANGED TO LOWERCASE
-
-  if (lowerCaseCandidateAnswer === correctAnswers[i].toLowerCase()) {//CHANGE ARRAY INDEX TO LOWERCASE HERE
-    // console.log("candidateAnswers[i]",candidateAnswers[i]);
-    // console.log("correctAnswers[i]",correctAnswers[i]);
-    numberOfCorrectAnswers += 1
-    // console.log("========================");
-    // console.log(numberOfCorrectAnswers);
-  } else {
-      numberOfCorrectAnswers += 0
+for (let i = 0; i < canidateAnsdwers.length; i++) {
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {//CHANGE ARRAY INDEX TO LOWERCASE HERE
+    numberOfCorrectAnswers += 1;
   }
+
+  console.log(`${i+1}) ${questions[i]}`);//i is the current iteration of the loop then +1 cuz what even is question number 0 before it was variable += 1
+  console.log(`Your Answer: ${candidateAnswers[i]}`);
+  console.log(`Correct Answer: ${correctAnswers[i]}`);
+  console.log();
 }
 
 grade = (numberOfCorrectAnswers / numberOfQuestions) * 100
@@ -139,15 +111,13 @@ if (grade >= 80) {
 
 
 
-
-
-
-
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-  console.log(`Candidate Name: ${candidateName}`);
   askQuestion();
+  console.log();
+
+  console.log(`Candidate Name: ${candidateName}`);
   gradeQuiz(this.candidateAnswers);
 }
 
